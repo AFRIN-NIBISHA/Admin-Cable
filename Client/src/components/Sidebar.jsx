@@ -94,11 +94,10 @@ export default function Sidebar({ activeTab, setActiveTab, mobileOpen, setMobile
 
       <div className="sidebar-footer">
         <div className="admin-avatar">
-          AD
+          A
         </div>
         <div className="admin-info">
-          <span className="admin-name">Arun Kumar</span>
-          <span className="admin-role">Super Administrator</span>
+          <span className="admin-name">Admin</span>
         </div>
       </div>
     </aside>

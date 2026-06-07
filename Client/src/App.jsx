@@ -48,7 +48,7 @@ export default function App() {
   
   // Real login history of current session
   const [loginHistory] = useState([
-    { id: 1, time: "2026-06-07 18:33:04", user: "Arun Kumar (SuperAdmin)", ip: "192.168.1.42", browser: "Chrome / Windows 11" }
+    { id: 1, time: "2026-06-07 18:33:04", user: "Admin", ip: "192.168.1.42", browser: "Chrome / Windows 11" }
   ]);
 
   // --- Administrative State Modification Handlers ---

@@ -163,14 +163,13 @@ export default function Header({
             )}
           </div>
 
-          {/* Admin Avatar & Role */}
+          {/* Admin Avatar */}
           <div className="header-admin-info">
             <div className="admin-avatar-sm">
-              AD
+              A
             </div>
             <div className="admin-text-sm">
-              <span className="admin-name-sm">Arun Kumar</span>
-              <span className="admin-role-sm">Super Admin</span>
+              <span className="admin-name-sm">Admin</span>
             </div>
           </div>
         </div>
