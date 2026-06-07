@@ -405,7 +405,7 @@ a {
   border-radius: 50%;
 }
 .mobile-menu-btn {
-  display: none;
+  display: none !important;
 }
 
 .header-title-section h1 {
