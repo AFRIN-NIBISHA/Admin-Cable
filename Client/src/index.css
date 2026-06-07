@@ -292,7 +292,7 @@ a {
 .header-nav-row {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 12px;
   padding: 0 32px;
   background-color: #ffffff;
   width: 100%;
@@ -310,9 +310,11 @@ a {
   text-transform: uppercase;
   color: var(--text-secondary);
   letter-spacing: 1.5px;
-  padding: 16px 0;
+  padding: 10px 18px;
+  margin: 6px 0;
+  border-radius: var(--radius-md);
   position: relative;
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), background-color var(--transition-fast), transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow var(--transition-fast);
   display: flex;
   align-items: center;
   white-space: nowrap;
@@ -321,9 +323,9 @@ a {
 .nav-link-item::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  bottom: 6px;
+  left: 18px;
+  right: 18px;
   height: 2.5px;
   background-color: var(--primary);
   transform: scaleX(0);
@@ -332,6 +334,9 @@ a {
 }
 .nav-link-item:hover {
   color: var(--primary);
+  background-color: var(--primary-light);
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 4px 10px rgba(184, 151, 74, 0.08);
 }
 .nav-link-item:hover::after {
   transform: scaleX(1);
@@ -339,6 +344,7 @@ a {
 }
 .nav-link-item.active {
   color: var(--primary);
+  background-color: var(--primary-light);
 }
 .nav-link-item.active::after {
   transform: scaleX(1);
