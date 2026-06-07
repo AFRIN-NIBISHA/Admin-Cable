@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Shield, Database, Play, CheckCircle2, Clock, Terminal, Calendar, AlertCircle, Key, ShieldCheck, UserCheck } from 'lucide-react';
+import CustomSelect from './CustomSelect';
 
 export default function BackupSecurity({ loginHistory, activities, onTriggerToast }) {
   const [activeTab, setActiveTab] = useState('snapshots');
@@ -194,16 +195,17 @@ export default function BackupSecurity({ loginHistory, activities, onTriggerToas
 
                 <div style={{ width: '200px' }}>
                   <label className="form-label" style={{ fontWeight: '700', marginBottom: '6px' }}>Auto-Backup Frequency</label>
-                  <select 
-                    className="form-select"
+                  <CustomSelect 
                     value={frequency}
                     onChange={(e) => { setFrequency(e.target.value); onTriggerToast("Backup scheduler frequency modified.", `Frequency set to: ${e.target.value}`); }}
-                  >
-                    <option value="Hourly">Hourly Incremental</option>
-                    <option value="Daily">Daily Full Snapshots</option>
-                    <option value="Weekly">Weekly Complete</option>
-                    <option value="Disabled">Disabled</option>
-                  </select>
+                    options={[
+                      { value: "Hourly", label: "Hourly Incremental" },
+                      { value: "Daily", label: "Daily Full Snapshots" },
+                      { value: "Weekly", label: "Weekly Complete" },
+                      { value: "Disabled", label: "Disabled" }
+                    ]}
+                    style={{ width: '100%' }}
+                  />
                 </div>
               </div>
 

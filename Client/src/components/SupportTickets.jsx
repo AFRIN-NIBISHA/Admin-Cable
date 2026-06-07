@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CustomSelect from './CustomSelect';
 import { LifeBuoy, Search, AlertCircle, Clock, CheckCircle2, MessageSquare, Send, User, ChevronRight, UserCheck } from 'lucide-react';
 
 export default function SupportTickets({ 
@@ -66,17 +67,17 @@ export default function SupportTickets({
                 />
               </div>
 
-              <select 
-                className="form-select"
-                style={{ width: '130px', padding: '6px 12px' }}
+              <CustomSelect 
+                options={[
+                  { value: "All", label: "All Priorities" },
+                  { value: "High", label: "High Priority" },
+                  { value: "Medium", label: "Medium Priority" },
+                  { value: "Low", label: "Low Priority" }
+                ]}
+                style={{ width: '140px' }}
                 value={priorityFilter}
                 onChange={(e) => setPriorityFilter(e.target.value)}
-              >
-                <option value="All">All Priorities</option>
-                <option value="High">High Priority</option>
-                <option value="Medium">Medium Priority</option>
-                <option value="Low">Low Priority</option>
-              </select>
+              />
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', maxHeight: '480px', overflowY: 'auto' }}>
@@ -179,12 +180,14 @@ export default function SupportTickets({
                     <form onSubmit={handleAssignAction} style={{ display: 'flex', gap: '8px', alignItems: 'flex-end' }}>
                       <div className="form-group" style={{ marginBottom: 0, flex: 1 }}>
                         <label className="form-label">Assign Technician / Support Agent</label>
-                        <select className="form-select" style={{ padding: '6px 12px' }} value={selectedAssignee} onChange={(e) => setSelectedAssignee(e.target.value)} required>
-                          <option value="">-- Select Personnel --</option>
-                          {supportTeam.map(name => (
-                            <option key={name} value={name}>{name}</option>
-                          ))}
-                        </select>
+                          <CustomSelect 
+                            options={[
+                              { value: "", label: "-- Select Personnel --" },
+                              ...supportTeam.map(name => ({ value: name, label: name }))
+                            ]}
+                            value={selectedAssignee}
+                            onChange={(e) => setSelectedAssignee(e.target.value)}
+                          />
                       </div>
                       <button type="submit" className="btn btn-primary btn-sm" style={{ padding: '8px 12px' }}>
                         Assign Staff

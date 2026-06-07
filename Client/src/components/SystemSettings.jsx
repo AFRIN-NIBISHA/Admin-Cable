@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CustomSelect from './CustomSelect';
 import { Settings, Save, ShieldAlert, Key, Smartphone, Globe, Landmark, Mail } from 'lucide-react';
 
 export default function SystemSettings({ onSaveSettings }) {
@@ -105,14 +106,14 @@ export default function SystemSettings({ onSaveSettings }) {
             <div style={{ animation: 'fadeIn 0.2s ease' }}>
               <div className="form-group">
                 <label className="form-label">SMS Provider Gateway Endpoint</label>
-                <select 
-                  className="form-select"
+                <CustomSelect 
+                  options={[
+                    { value: "Twilio SMS Webhook", label: "Twilio SMS Gateway" },
+                    { value: "ValueFirst SMS India", label: "ValueFirst Enterprise SMS Gateway (India)" }
+                  ]}
                   value={smsGateway}
                   onChange={(e) => setSmsGateway(e.target.value)}
-                >
-                  <option value="Twilio SMS Webhook">Twilio SMS Gateway</option>
-                  <option value="ValueFirst SMS India">ValueFirst Enterprise SMS Gateway (India)</option>
-                </select>
+                />
               </div>
 
               <div className="form-grid">
@@ -200,10 +201,14 @@ export default function SystemSettings({ onSaveSettings }) {
             <div style={{ animation: 'fadeIn 0.2s ease' }}>
               <div className="form-group">
                 <label className="form-label">Collections Gateway API</label>
-                <select className="form-select">
-                  <option>Razorpay standard checkout APIs</option>
-                  <option>Paytm Business checkout SDK</option>
-                </select>
+                <CustomSelect 
+                  options={[
+                    { value: "Razorpay", label: "Razorpay standard checkout APIs" },
+                    { value: "Paytm", label: "Paytm Business checkout SDK" }
+                  ]}
+                  value="Razorpay"
+                  onChange={() => {}}
+                />
               </div>
 
               <div className="form-group">

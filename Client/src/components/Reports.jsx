@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CustomSelect from './CustomSelect';
 import { FileText, Download, Calendar, Printer, BarChart2, IndianRupee, MapPin, Users } from 'lucide-react';
 
 export default function Reports({ transactions, operators }) {
@@ -47,15 +48,15 @@ export default function Reports({ transactions, operators }) {
         <form onSubmit={handleGenerate} style={{ display: 'flex', gap: '16px', alignItems: 'flex-end', flexWrap: 'wrap' }}>
           <div className="form-group" style={{ marginBottom: 0, flex: 1, minWidth: '220px' }}>
             <label className="form-label">Report Category</label>
-            <select 
-              className="form-select"
+            <CustomSelect 
+              options={[
+                { value: "revenue", label: "Revenue Audit Reports (Collections & SaaS Sales)" },
+                { value: "customer", label: "Customer Analytics Reports (States & Demographics)" },
+                { value: "operator", label: "Operator Performance Reports (Commissions & Plans)" }
+              ]}
               value={reportType}
               onChange={(e) => setReportType(e.target.value)}
-            >
-              <option value="revenue">Revenue Audit Reports (Collections & SaaS Sales)</option>
-              <option value="customer">Customer Analytics Reports (States & Demographics)</option>
-              <option value="operator">Operator Performance Reports (Commissions & Plans)</option>
-            </select>
+            />
           </div>
 
           <div className="form-group" style={{ marginBottom: 0, width: '160px' }}>
