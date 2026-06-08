@@ -73,7 +73,7 @@ export default function CustomerAnalytics({ operators, transactions }) {
   };
 
   return (
-    <div style={{ animation: 'fadeIn 0.3s ease' }}>
+    <div>
       
       {/* Metric Cards Grid */}
       <div className="stats-grid">

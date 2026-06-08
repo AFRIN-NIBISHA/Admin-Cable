@@ -60,8 +60,7 @@ export default function Sidebar({ activeTab, setActiveTab, mobileOpen, setMobile
         </div>
         <div className="logo-text-container">
           <div className="logo-text-wrapper">
-            <span className="logo-brand-sky">Sky</span>
-            <span className="logo-brand-link">Link</span>
+            <span className="logo-brand-sky">Sky</span><span className="logo-brand-link">Link</span>
             <span className="logo-brand-cable">Cable</span>
           </div>
           <span className="logo-subtext">Admin Console</span>

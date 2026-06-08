@@ -102,7 +102,7 @@ export default function OperatorsManagement({
   });
 
   return (
-    <div style={{ animation: 'fadeIn 0.3s ease' }}>
+    <div>
       
       {/* Control Header Card */}
       <div className="card">

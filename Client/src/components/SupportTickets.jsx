@@ -47,7 +47,7 @@ export default function SupportTickets({
   };
 
   return (
-    <div style={{ animation: 'fadeIn 0.3s ease' }}>
+    <div>
       
       <div className="content-layout">
         

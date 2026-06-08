@@ -59,7 +59,7 @@ export default function BackupSecurity({ loginHistory, activities, onTriggerToas
   };
 
   return (
-    <div style={{ animation: 'fadeIn 0.3s ease' }}>
+    <div>
       
       {/* Overview stats cards */}
       <div className="stats-grid">
@@ -163,7 +163,7 @@ export default function BackupSecurity({ loginHistory, activities, onTriggerToas
           
           {/* 1. Database Backup Tab */}
           {activeTab === 'snapshots' && (
-            <div style={{ animation: 'fadeIn 0.2s ease' }}>
+            <div className="tab-panel-enter">
               <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start', flexWrap: 'wrap', marginBottom: '24px' }}>
                 <div style={{ flex: 1, minWidth: '220px' }}>
                   <span style={{ fontSize: '0.85rem', fontWeight: '700', display: 'block', marginBottom: '6px' }}>
@@ -241,7 +241,7 @@ export default function BackupSecurity({ loginHistory, activities, onTriggerToas
 
           {/* 2. Activity Logs Tab */}
           {activeTab === 'activities' && (
-            <div style={{ animation: 'fadeIn 0.2s ease' }}>
+            <div className="tab-panel-enter">
               <span style={{ fontSize: '0.85rem', fontWeight: '700', display: 'block', marginBottom: '12px' }}>System Operations Logs</span>
               <div className="table-wrapper" style={{ margin: 0 }}>
                 <table className="custom-table" style={{ fontSize: '0.8rem' }}>
@@ -276,7 +276,7 @@ export default function BackupSecurity({ loginHistory, activities, onTriggerToas
 
           {/* 3. Login History Tab */}
           {activeTab === 'history' && (
-            <div style={{ animation: 'fadeIn 0.2s ease' }}>
+            <div className="tab-panel-enter">
               <span style={{ fontSize: '0.85rem', fontWeight: '700', display: 'block', marginBottom: '12px' }}>Access Authentication History</span>
               <div className="table-wrapper" style={{ margin: 0 }}>
                 <table className="custom-table" style={{ fontSize: '0.8rem' }}>
@@ -315,7 +315,7 @@ export default function BackupSecurity({ loginHistory, activities, onTriggerToas
 
           {/* 4. Role Permissions Grid Tab */}
           {activeTab === 'permissions' && (
-            <div style={{ animation: 'fadeIn 0.2s ease' }}>
+            <div className="tab-panel-enter">
               <span style={{ fontSize: '0.85rem', fontWeight: '700', display: 'block', marginBottom: '8px' }}>Assign Access Privileges Matrix</span>
               <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '20px' }}>
                 Toggle functional authorizations assigned to organizational profiles.

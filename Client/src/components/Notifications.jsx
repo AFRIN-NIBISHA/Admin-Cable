@@ -73,7 +73,7 @@ export default function Notifications({
   };
 
   return (
-    <div style={{ animation: 'fadeIn 0.3s ease' }}>
+    <div>
       
       <div className="content-layout">
         
@@ -127,7 +127,7 @@ export default function Notifications({
 
             <div style={{ padding: '24px' }}>
               {activeTab === 'general' && (
-                <form onSubmit={handleSendGeneral} style={{ animation: 'fadeIn 0.2s ease' }}>
+                <form onSubmit={handleSendGeneral} className="tab-panel-enter">
                   <div className="form-group">
                     <label className="form-label">Broadcast Subject *</label>
                     <input 
@@ -173,7 +173,7 @@ export default function Notifications({
               )}
 
               {activeTab === 'maintenance' && (
-                <form onSubmit={handleSendMaintenance} style={{ animation: 'fadeIn 0.2s ease' }}>
+                <form onSubmit={handleSendMaintenance} className="tab-panel-enter">
                   <div className="form-grid">
                     <div className="form-group">
                       <label className="form-label">Maintenance Date *</label>
@@ -215,7 +215,7 @@ export default function Notifications({
               )}
 
               {activeTab === 'promo' && (
-                <form onSubmit={handleSendPromotional} style={{ animation: 'fadeIn 0.2s ease' }}>
+                <form onSubmit={handleSendPromotional} className="tab-panel-enter">
                   <div className="form-group">
                     <label className="form-label">Campaign Promotion Title *</label>
                     <input type="text" className="form-input" value={promoTitle} onChange={(e) => setPromoTitle(e.target.value)} required />

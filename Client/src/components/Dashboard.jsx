@@ -102,8 +102,28 @@ export default function Dashboard({
     }).format(val);
   };
 
+  const today = new Date().toLocaleDateString('en-IN', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+
   return (
-    <div style={{ animation: 'fadeIn 0.3s ease' }}>
+    <div>
+
+      <div className="page-hero">
+        <div className="page-hero-content">
+          <h1>Operations Dashboard</h1>
+          <p>Real-time overview of SkyLink Cable network performance across Tamil Nadu districts.</p>
+        </div>
+        <div className="page-hero-meta">
+          <span className="page-hero-badge">
+            <Activity size={12} /> Live Monitoring
+          </span>
+          <span className="page-hero-date">{today}</span>
+        </div>
+      </div>
       
       {/* 7 Stats Cards Section */}
       <div className="stats-grid">
@@ -248,8 +268,12 @@ export default function Dashboard({
                 <svg className="chart-svg" viewBox="0 0 450 250">
                   <defs>
                     <linearGradient id="chart-gradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="var(--primary)" stopOpacity="0.4" />
-                      <stop offset="100%" stopColor="var(--primary)" stopOpacity="0.0" />
+                      <stop offset="0%" stopColor="#1d6fe8" stopOpacity="0.35" />
+                      <stop offset="100%" stopColor="#1d6fe8" stopOpacity="0.0" />
+                    </linearGradient>
+                    <linearGradient id="line-gradient" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stopColor="#1d6fe8" />
+                      <stop offset="100%" stopColor="#3b9eff" />
                     </linearGradient>
                   </defs>
 

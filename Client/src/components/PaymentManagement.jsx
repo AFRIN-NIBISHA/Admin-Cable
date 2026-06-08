@@ -62,7 +62,7 @@ export default function PaymentManagement({
   };
 
   return (
-    <div style={{ animation: 'fadeIn 0.3s ease' }}>
+    <div>
       
       {/* Sub tabs switcher */}
       <div className="card" style={{ padding: 0, marginBottom: '24px' }}>

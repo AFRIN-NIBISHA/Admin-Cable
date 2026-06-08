@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import Dashboard from './components/Dashboard';
@@ -25,6 +25,11 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [mobileOpen, setMobileOpen] = useState(false);
   const [toasts, setToasts] = useState([]);
+  const mainRef = useRef(null);
+
+  useEffect(() => {
+    mainRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [activeTab]);
 
   // Toast notifier helper
   const addToast = (title, message, type = 'success') => {
@@ -492,8 +497,10 @@ export default function App() {
         onClearAllNotifications={handleClearAllNotifications}
       />
 
-      <main className="main-wrapper">
-        {renderActiveView()}
+      <main className="main-wrapper" ref={mainRef}>
+        <div key={activeTab} className="page-view">
+          {renderActiveView()}
+        </div>
       </main>
 
       {/* Dynamic Toast Notifications */}
@@ -505,8 +512,8 @@ export default function App() {
               <div className="toast-message">{toast.message}</div>
             </div>
             <button 
+              className="toast-close"
               onClick={() => setToasts(prev => prev.filter(t => t.id !== toast.id))} 
-              style={{ fontWeight: 'bold', fontSize: '1.2rem', color: 'var(--text-secondary)', cursor: 'pointer' }}
             >
               &times;
             </button>

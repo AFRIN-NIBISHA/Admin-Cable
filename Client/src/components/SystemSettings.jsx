@@ -30,7 +30,7 @@ export default function SystemSettings({ onSaveSettings }) {
   };
 
   return (
-    <div style={{ animation: 'fadeIn 0.3s ease' }}>
+    <div>
       
       <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
         
@@ -103,7 +103,7 @@ export default function SystemSettings({ onSaveSettings }) {
           
           {/* 1. SMS Gateway Tab */}
           {activeTab === 'sms' && (
-            <div style={{ animation: 'fadeIn 0.2s ease' }}>
+            <div className="tab-panel-enter">
               <div className="form-group">
                 <label className="form-label">SMS Provider Gateway Endpoint</label>
                 <CustomSelect 
@@ -138,7 +138,7 @@ export default function SystemSettings({ onSaveSettings }) {
 
           {/* 2. WhatsApp API Tab */}
           {activeTab === 'wa' && (
-            <div style={{ animation: 'fadeIn 0.2s ease' }}>
+            <div className="tab-panel-enter">
               <div className="form-group">
                 <label className="form-label">Meta Cloud WhatsApp API Endpoint</label>
                 <input 
@@ -159,7 +159,7 @@ export default function SystemSettings({ onSaveSettings }) {
 
           {/* 3. Email Settings Tab */}
           {activeTab === 'email' && (
-            <div style={{ animation: 'fadeIn 0.2s ease' }}>
+            <div className="tab-panel-enter">
               <div className="form-grid">
                 <div className="form-group">
                   <label className="form-label">SMTP Server Hostname *</label>
@@ -198,7 +198,7 @@ export default function SystemSettings({ onSaveSettings }) {
 
           {/* 4. Payment Gateway Settings Tab */}
           {activeTab === 'billing' && (
-            <div style={{ animation: 'fadeIn 0.2s ease' }}>
+            <div className="tab-panel-enter">
               <div className="form-group">
                 <label className="form-label">Collections Gateway API</label>
                 <CustomSelect 

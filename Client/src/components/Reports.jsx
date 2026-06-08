@@ -35,7 +35,7 @@ export default function Reports({ transactions, operators }) {
   };
 
   return (
-    <div style={{ animation: 'fadeIn 0.3s ease' }}>
+    <div>
       
       {/* Parameter Selection Cards */}
       <div className="card">

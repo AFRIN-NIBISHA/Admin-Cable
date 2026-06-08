@@ -43,8 +43,7 @@ export default function Header({
             </div>
             <div className="logo-text-container">
               <div className="logo-text-wrapper">
-                <span className="logo-brand-sky">Sky</span>
-                <span className="logo-brand-link">Link</span>
+                <span className="logo-brand-sky">Sky</span><span className="logo-brand-link">Link</span>
                 <span className="logo-brand-cable">Cable</span>
               </div>
               <span className="logo-subtext">Admin Console</span>
@@ -83,73 +82,39 @@ export default function Header({
 
             {dropdownOpen && (
               <>
-                {/* Backing backdrop for close clicks */}
                 <div 
                   style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 99 }}
                   onClick={() => setDropdownOpen(false)}
                 ></div>
-                <div 
-                  style={{ 
-                    position: 'absolute', 
-                    top: '50px', 
-                    right: '0', 
-                    backgroundColor: 'white', 
-                    border: '1px solid var(--border-color)', 
-                    borderRadius: 'var(--radius-lg)', 
-                    width: '320px', 
-                    boxShadow: 'var(--shadow-xl)', 
-                    zIndex: 100, 
-                    overflow: 'hidden',
-                    animation: 'slideUp 0.2s ease'
-                  }}
-                >
-                  <div 
-                    style={{ 
-                      padding: '16px', 
-                      borderBottom: '1px solid var(--border-color)', 
-                      display: 'flex', 
-                      justifyContent: 'space-between', 
-                      alignItems: 'center',
-                      backgroundColor: 'var(--border-light)'
-                    }}
-                  >
-                    <span style={{ fontWeight: '700', fontSize: '0.875rem' }}>System Alerts</span>
+                <div className="notif-dropdown">
+                  <div className="notif-dropdown-header">
+                    <span className="notif-dropdown-title">System Alerts</span>
                     {notifications.length > 0 && (
                       <button 
+                        className="notif-clear-btn"
                         onClick={() => { onClearAllNotifications(); setDropdownOpen(false); }}
-                        style={{ fontSize: '0.75rem', color: 'var(--danger)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '4px' }}
                       >
                         <Trash2 size={12} /> Clear all
                       </button>
                     )}
                   </div>
-                  <div style={{ maxHeight: '250px', overflowY: 'auto' }}>
+                  <div className="notif-dropdown-body">
                     {notifications.length === 0 ? (
-                      <div style={{ padding: '24px', textAlign: 'center', color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
-                        <MailOpen size={32} style={{ margin: '0 auto 8px auto', display: 'block', opacity: 0.3 }} />
+                      <div className="notif-empty">
+                        <MailOpen size={32} style={{ margin: '0 auto 10px auto', display: 'block', opacity: 0.25 }} />
                         No unread alerts
                       </div>
                     ) : (
                       notifications.map((notif) => (
-                        <div 
-                          key={notif.id} 
-                          style={{ 
-                            padding: '12px 16px', 
-                            borderBottom: '1px solid var(--border-light)', 
-                            display: 'flex', 
-                            justifyContent: 'space-between', 
-                            alignItems: 'flex-start',
-                            gap: '12px'
-                          }}
-                        >
-                          <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                            <span style={{ fontSize: '0.8rem', fontWeight: '600', color: 'var(--text-main)' }}>{notif.title}</span>
-                            <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{notif.message}</span>
-                            <span style={{ fontSize: '0.65rem', color: 'var(--text-secondary)', marginTop: '4px' }}>{notif.time}</span>
+                        <div key={notif.id} className="notif-item">
+                          <div>
+                            <div className="notif-item-title">{notif.title}</div>
+                            <div className="notif-item-msg">{notif.message}</div>
+                            <div className="notif-item-time">{notif.time}</div>
                           </div>
                           <button 
+                            className="notif-dismiss"
                             onClick={() => onClearNotification(notif.id)}
-                            style={{ color: 'var(--text-secondary)', padding: '2px' }}
                             title="Dismiss"
                           >
                             &times;
