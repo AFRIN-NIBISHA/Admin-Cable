@@ -20,6 +20,7 @@ import {
   Database,
   BellRing
 } from 'lucide-react';
+import { useCardPop } from './hooks/useCardPop';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -30,6 +31,8 @@ export default function App() {
   useEffect(() => {
     mainRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
   }, [activeTab]);
+
+  useCardPop(mainRef);
 
   // Toast notifier helper
   const addToast = (title, message, type = 'success') => {
