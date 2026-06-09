@@ -385,7 +385,6 @@ a {
   color: #ffffff;
   background: linear-gradient(135deg, var(--primary) 0%, #3b9eff 100%);
   box-shadow: 0 4px 14px var(--primary-glow);
-  animation: navPop 0.42s cubic-bezier(0.34, 1.45, 0.64, 1) both;
 }
 
 .header-logo-area {
@@ -697,21 +696,15 @@ a {
 }
 
 .stat-card.is-popped {
-  transform: perspective(900px) translateY(-11px) scale(1.035) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
-  box-shadow:
-    0 24px 48px rgba(15, 23, 41, 0.13),
-    0 12px 24px rgba(29, 111, 232, 0.09);
-  border-color: rgba(29, 111, 232, 0.22);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(29, 111, 232, 0.2);
   z-index: 4;
 }
 
 .stat-card.is-popped::before {
   opacity: 1;
   height: 3px;
-}
-
-.stat-card.is-popped .stat-card-icon {
-  transform: scale(1.08);
 }
 
 .stat-card-header {
@@ -834,11 +827,9 @@ a {
 }
 
 .card.is-popped {
-  transform: perspective(900px) translateY(-9px) scale(1.02) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
-  box-shadow:
-    0 20px 40px rgba(15, 23, 41, 0.11),
-    0 8px 20px rgba(29, 111, 232, 0.08);
-  border-color: rgba(29, 111, 232, 0.18);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(29, 111, 232, 0.16);
   z-index: 3;
   position: relative;
 }
@@ -1370,30 +1361,22 @@ a {
 @keyframes pagePop {
   0% {
     opacity: 0;
-    transform: scale(0.95) translateY(18px);
-  }
-  65% {
-    opacity: 1;
-    transform: scale(1.015) translateY(-3px);
+    transform: translateY(12px);
   }
   100% {
     opacity: 1;
-    transform: scale(1) translateY(0);
+    transform: translateY(0);
   }
 }
 
 @keyframes blockPop {
   0% {
     opacity: 0;
-    transform: perspective(900px) translateY(14px) scale(0.96);
-  }
-  70% {
-    opacity: 1;
-    transform: perspective(900px) translateY(-4px) scale(1.02);
+    transform: translateY(10px);
   }
   100% {
     opacity: 1;
-    transform: perspective(900px) translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 
